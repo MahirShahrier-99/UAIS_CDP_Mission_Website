@@ -60,7 +60,7 @@ a:hover { text-decoration: underline; }
 
 /* Overview text keeps a readable line length even on ultrawide screens,
    but sits noticeably wider than before — no more tiny centered column. */
-.container.narrow { max-width: 1300px; }
+/* .narrow removed — Overview and Team sections now use the full-width container like the rest of the page */
 
 h1, h2, h3 { font-family: var(--font-display); font-weight: 600; color: var(--ink); }
 
@@ -570,7 +570,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; color: var(--in
 
 /* ---------- Team / acknowledgements section ---------- */
 .team-section { background: var(--bg); }
-.team-section .container.narrow { margin-bottom: 34px; }
+.team-section .container:first-child { margin-bottom: 34px; }
 .team-section .photo-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
 .team-section .photo-card img { height: 280px; }
 .team-section .photo-card { --photo-h: 280px; }
