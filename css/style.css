@@ -282,13 +282,54 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; color: var(--in
   padding: 38px 0;
 }
 
+.stats-band {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 44px;
+  flex-wrap: wrap;
+}
+
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  max-width: 480px;
-  margin: 0 auto;
-  gap: 20px;
+  gap: 32px;
   text-align: center;
+}
+
+.stats-divider {
+  width: 1px;
+  align-self: stretch;
+  min-height: 44px;
+  background: rgba(251, 243, 226, 0.22);
+}
+
+.partner-logos {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.logo-chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  height: 56px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: rgba(251, 243, 226, 0.94);
+  transition: transform 0.2s var(--ease), background 0.2s var(--ease);
+}
+.logo-chip:hover {
+  background: #FFFFFF;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+.logo-chip img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .stat-num {
@@ -497,16 +538,27 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; color: var(--in
   transform: translate(-50%, -50%) scale(1);
 }
 
-/* Touch devices can't hover, so surface the same hint once the card
-   has scrolled into view — mirrors the behavior on mahirshahrier.com */
+/* Touch devices can't hover, so the hint isn't a dark overlay badge on
+   the photo — it's a small plain line of text tucked next to the caption. */
 @media (hover: none) {
-  .photo-card::before { opacity: 1; background: rgba(30, 26, 20, 0); transition: background 0.4s var(--ease) 0.1s; }
-  .photo-card.visible::before { background: rgba(30, 26, 20, 0.22); }
-  .view-hint { transition: opacity 0.4s var(--ease) 0.15s, transform 0.4s var(--ease) 0.15s; }
-  .photo-card.visible .view-hint {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+  .photo-card::before { display: none; }
+  .view-hint {
+    position: static;
+    display: inline-flex;
+    transform: none;
+    opacity: 0.85;
+    background: none;
+    border: none;
+    backdrop-filter: none;
+    padding: 6px 12px 0;
+    margin: 0;
+    border-radius: 0;
+    color: var(--salmon-deep);
+    font-size: 0.68rem;
+    font-weight: 600;
   }
+  .view-hint svg { width: 10px; height: 10px; }
+  .photo-card figcaption { padding-top: 2px; }
 }
 
 .photo-card figcaption {
@@ -662,7 +714,10 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; color: var(--in
     opacity: 1;
     transform: translateX(0);
   }
+  .stats-band { flex-direction: column; gap: 20px; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; max-width: 320px; }
+  .stats-divider { width: 60%; min-height: 1px; height: 1px; align-self: center; }
+  .logo-chip { width: 110px; height: 48px; }
   .stat-num { font-size: 1.6rem; }
   .section { padding: 56px 0; }
 
