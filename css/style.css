@@ -568,6 +568,25 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; color: var(--in
   line-height: 1.4;
 }
 
+/* ---------- Discussion video section ---------- */
+.discussion-section { background: var(--bg-alt); }
+.video-wrap {
+  max-width: 900px;
+  margin: 8px auto 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  background: #000;
+}
+.video-wrap video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
 /* ---------- Team / acknowledgements section ---------- */
 .team-section { background: var(--bg); }
 .team-section .container:first-child { margin-bottom: 34px; }
