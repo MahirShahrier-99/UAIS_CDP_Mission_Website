@@ -570,6 +570,10 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; color: var(--in
 
 /* ---------- Discussion video section ---------- */
 .discussion-section { background: var(--bg-alt); }
+.discussion-section .section-intro { max-width: none; white-space: nowrap; }
+@media (max-width: 860px) {
+  .discussion-section .section-intro { white-space: normal; }
+}
 .video-wrap {
   max-width: 900px;
   margin: 8px auto 0;
